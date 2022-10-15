@@ -4,24 +4,30 @@ const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('mario');
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        const blog = {title, body, author};
+    }
+
     return ( 
         <div className="create">
             <h2>Add a New Blog</h2>
-            <form>
-                <lebel>Blog title: </lebel>
+            <form onSubmit={handleSubmit}>
+                <label>Blog title: </label>
                 <input
                     type='text'
                     required
                     value = {title}
                     onChange= {e => setTitle(e.target.value)}
                 />
-                <lebel>Blog body: </lebel>
+                <label>Blog body: </label>
                 <textarea 
                     required
                     value = {body}
                     onChange= {e => setBody(e.target.value)}
                 ></textarea>
-                <lebel>Blog author: </lebel>
+                <label>Blog author: </label>
                 <select
                     value = {author}
                     onChange = {e => setAuthor(e.target.value)}
